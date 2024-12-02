@@ -124,5 +124,6 @@ public class NumberGuessingGames {
 
         // game end
         System.out.println("Thank you for playing our games. Bye!");
+        scan.close();
     }
 }

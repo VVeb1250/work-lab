@@ -64,5 +64,6 @@ class NumberGuessingGame {
             System.out.println("You have tried 5 times. You ran out of guesses");
             System.out.println("The answer is " + random);
         }
+        scan.close();
     }
 }
