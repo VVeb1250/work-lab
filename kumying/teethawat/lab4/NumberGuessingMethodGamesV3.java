@@ -24,7 +24,7 @@
  * ID : 673040390-0
  * Sec : 1
  * 
- * last update 04:49 09/12/2024
+ * last update 14:04 09/12/2024
  */
 
 
@@ -39,9 +39,9 @@ public class NumberGuessingMethodGamesV3 {
     static int max_num;
     static int max_tries;
     static int answer;
-    static int numGames;
-    static int numWins;
-    static int totalGuesses;
+    static int total_plays;
+    static int total_wins;
+    static int total_guesses;
     static int highscore = 0;
     static boolean win;
     // create a Scanner object
@@ -125,6 +125,20 @@ public class NumberGuessingMethodGamesV3 {
         } while (display);
     }
 
+    // update overall status
+    public static void updateLog() {
+        // update total_guesses
+        total_guesses += guesses_list[0];
+        // update highscore
+        if (highscore == 0 || highscore > guesses_list[0]) {
+            highscore = guesses_list[0];
+        }
+        // update win total
+        if (win) {
+            total_wins++;
+        }
+    }
+
     // game log
     public static void displayGameLog() {
         // output for game log
@@ -135,18 +149,6 @@ public class NumberGuessingMethodGamesV3 {
         System.out.print(guesses_list[0]);
         System.out.print(", Win: ");
         System.out.println(win);
-
-        // update overall status
-            // update totalGuesses
-            totalGuesses += guesses_list[0];
-            // update highscore
-            if (highscore == 0 || highscore > guesses_list[0]) {
-                highscore = guesses_list[0];
-            }
-            // update win total
-        if (win) {
-            numWins++;
-        }
     }
 
     // game log after game stop
@@ -154,13 +156,13 @@ public class NumberGuessingMethodGamesV3 {
         // all output
         System.out.println("===== All Games Stats =====");
         System.out.print("Total games played: ");
-        System.out.println(numGames);
+        System.out.println(total_plays);
         System.out.print("Total games win: ");
-        System.out.println(numWins);
+        System.out.println(total_wins);
         System.out.print("Win ratio: ");
-        System.out.println( ((float) numWins/numGames*100) + "%");
+        System.out.println( ((float) total_wins/total_plays*100) + "%");
         System.out.print("Average number of guesses per game: ");
-        System.out.println((int) totalGuesses/numGames);
+        System.out.println((int) total_guesses/total_plays);
         System.out.print("High score (the lowest number of guesses): ");
         System.out.println(highscore);
     }
@@ -180,7 +182,7 @@ public class NumberGuessingMethodGamesV3 {
     public static void playGame() {
         // other setup
         genAnswer();
-        boolean lose = true; // boolean lose
+        win = false; // suppose to lose first
         guesses_list = new int[max_tries + 1]; // reset guesses list
         
         // output before game start
@@ -192,64 +194,64 @@ public class NumberGuessingMethodGamesV3 {
             System.out.print("Enter an integer between " + min_num + " and " + max_num + ":");
             int guess_num = scan.nextInt();  // Read user input
             
-            // check error
-                while (guess_num > max_num || guess_num < min_num) {
-                    System.out.println("The number must be between " + min_num + " and "+ max_num);
-                        // ask number again
-                    System.out.print("Enter an integer between " + min_num + " and " + max_num + ":");
-                    guess_num = scan.nextInt();
-                }
-
-                // add to log before consider
-                appendList(tries, guess_num);
-                
-                // condition
-                if (guess_num == answer) {
-                    // win condition
-                    win = true;
-                    System.out.println("Congratulations!");
-                    if (tries == 1) { // one try
-                        System.out.println("You have tried " + tries + " time");
-                    } else { // many tries
-                        System.out.println("You have tried " + tries + " times");
-                    }
-                    lose = false; // set boolean to get win
-                    break;
-                    
-                } else if (guess_num > answer) {
-                    System.out.println("Try a lower number!");
-                    
-                } else if (guess_num < answer) {
-                    System.out.println("Try a higher number!");
-                    
-                } else {
-                    System.err.println("Error : you should enter Integer");
-                }
+                // check error
+            while (guess_num > max_num || guess_num < min_num) {
+                System.out.println("The number must be between " + min_num + " and "+ max_num);
+                    // ask number again
+                System.out.print("Enter an integer between " + min_num + " and " + max_num + ":");
+                guess_num = scan.nextInt();
             }
-            // game ended and go to lose condition
-            if (lose) {
-                win = false;
-                System.out.println("You have tried " + max_tries + " times. You ran out of guesses");
-                System.out.println("The answer is " + answer);
+
+            // add to log before consider
+            appendList(tries, guess_num);
+
+            // condition
+            if (guess_num == answer) {
+                // win condition
+                win = true;
+                System.out.println("Congratulations!");
+                if (tries == 1) { // one try
+                    System.out.println("You have tried " + tries + " time");
+                } else { // many tries
+                    System.out.println("You have tried " + tries + " times");
+                }
+                win = true; // set boolean to get win
+                break;
+                
+            } else if (guess_num > answer) {
+                System.out.println("Try a lower number!");
+                
+            } else if (guess_num < answer) {
+                System.out.println("Try a higher number!");
+                
+            } else {
+                System.err.println("Error : you should enter Integer");
             }
         }
+        // game ended and go to lose condition
+        if (!win) {
+            System.out.println("You have tried " + max_tries + " times. You ran out of guesses");
+            System.out.println("The answer is " + answer);
+        }
+    }
 
     // function for while games and call list of answar
     public static void playGames() {
 
         boolean play = true; // for check game that really want to play
 
-        // overall game log
-        numGames = 0;
-        numWins = 0;
-        totalGuesses = 0;
+        // reset overall game log
+        total_plays = 0;
+        total_wins = 0;
+        total_guesses = 0;
 
         do {
             // call loop games and logs
             playGame();
-            numGames++; // add plays after each game end
+            total_plays++; // add plays after each game end
             displayGuessesLoop();
             displayGameLog();
+            updateLog();
 
             // ask after play
             System.out.print("Want to play again (Y or y):");
@@ -259,11 +261,11 @@ public class NumberGuessingMethodGamesV3 {
                 play = true;
             } else {
                 play = false;
-                // game end
-                System.out.println("Thank you for playing our games. Bye!");
             }
         } while (play);
-        // display all log after game end
+        // game end
+        System.out.println("Thank you for playing our games. Bye!");
+            // display all log after game end
         displayAllGamesStats();
         scan.close(); // just close scan
     }
