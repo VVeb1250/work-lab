@@ -9,7 +9,7 @@
  * 
  * @version 1.0
  * 
- * last update 21:43 17/12/2024
+ * last update 21:10 18/12/2024
  */
 package kumying.teethawat.lab5;
 
@@ -91,6 +91,18 @@ public class MatrixOperations {
             int random = min + (int)(Math.random() * ((max - min) + 1)); // random a number
             return random;
         }
+
+        // for modify diagonal elements
+        public static int[][] Modify_Diagonal_Elements(int[][] matrix) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    if (i != j) {
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+            return matrix;
+        }
     
     // original function
         // display create matrix
@@ -149,10 +161,6 @@ public class MatrixOperations {
         
         // matrix mode 5
     public static void createDiagonalMatrix() {
-        System.out.println("Enter size of square matrix:");
-        int size = scanner.nextInt(); // just scan
-        rows = size;
-        columns = size;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if (i == j) {
@@ -243,11 +251,10 @@ public class MatrixOperations {
             System.out.println("Matrix is not square. Cannot display diagonal elements");
             return;
         }
-        System.out.println("Diagonal list:");
-        // show up Diagonal list (not sure cuz don't have example bruh)
-        for (int i = 0; i < rows; i++) {
-            System.out.println("Diagonal " + (i+1) + " : " + matrix[i][i]);
-        }
+        // show up Diagonal Elements (not sure cuz don't have example bruh)
+        System.out.println("Diagonal Elements: ");
+        int[][] Diagonal_mat = Modify_Diagonal_Elements(matrix);
+        displayMatrix(Diagonal_mat);
     }
 
     // main function, everything start here
@@ -328,4 +335,3 @@ public class MatrixOperations {
         scanner.close();
     }
 }
- 
