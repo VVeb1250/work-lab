@@ -27,74 +27,21 @@ public class GuessGame {
 
     // Original : class call main game
     public GuessGame() {
-        
-        boolean play = true; // for check game that really want to play
-        do {
-            // call loop games and logs
-            configureGame(min, max, maxTries); // setup game before start
-            
-            boolean win = playSingleGame();
-            if (win) {
-                System.out.println("You win!");
-            } else {
-                System.out.println("Better luck next time.");
-            }
-            boolean check_yn = true;
-
-            // ask after play
-            while (check_yn) {
-                System.out.print("Want to play again (y/n):");
-                String want = scan.next();
-                    // check letters
-                if (want.equalsIgnoreCase("Y")) {
-                    play = true;
-                    break;
-                } else if (want.equalsIgnoreCase("N")){
-                    play = false;
-                    break;
-                } else {
-                    System.out.println("Please type only y and n."); // ask to type again
-                }
-            }
-
-        } while (play);
-        // game end
-        System.out.println("Thank you for playing the Number Guessing Game!");
+        // set default constructor
+        min = 1;
+        max = 100;
+        maxTries = 10;
+        answer = 0;
+        attempts = 0;
     }
 
-    // class call main game (same with upper)
+    // class set min max and maxTries
     public GuessGame(int min, int max, int maxTries) {
         setMin(min);
         setMax(max);
         setMaxTries(maxTries);
-        playSingleGame();
-        
-        // boolean play = true; // for check game that really want to play
-        // do {
-        //     // call loop games and logs
-        //     // configureGame(min, max, maxTries); // no need config (i guessed)
-        //     playSingleGame();
-        //     boolean check_yn = true;
-
-        //     // ask after play
-        //     while (check_yn) {
-        //         System.out.print("Want to play again (y/n):");
-        //         String want = scan.next();
-        //             // check letters
-        //         if (want.equalsIgnoreCase("Y")) {
-        //             play = true;
-        //             break;
-        //         } else if (want.equalsIgnoreCase("N")){
-        //             play = false;
-        //             break;
-        //         } else {
-        //             System.out.println("Please type only y and n."); // ask to type again
-        //         }
-        //     }
-
-        // } while (play);
-        // // game end
-        // System.out.println("Thank you for playing the Number Guessing Game!");
+        answer = 0;
+        attempts = 0;
     }
 
     // Getter

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class NumberGuessingOOPGame {
 
     public static Scanner input = new Scanner(System.in);
+
     private GuessGame game;
 
     public void configure() {
@@ -46,6 +47,7 @@ public class NumberGuessingOOPGame {
                     // check letters
                 if (want.equalsIgnoreCase("Y")) {
                     playAgain = true;
+                    configure();
                     break;
                 } else if (want.equalsIgnoreCase("N")){
                     playAgain = false;
