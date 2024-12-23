@@ -67,33 +67,34 @@ public class GuessGame {
         setMin(min);
         setMax(max);
         setMaxTries(maxTries);
+        playSingleGame();
         
-        boolean play = true; // for check game that really want to play
-        do {
-            // call loop games and logs
-            // configureGame(min, max, maxTries); // no need config (i guessed)
-            playSingleGame();
-            boolean check_yn = true;
+        // boolean play = true; // for check game that really want to play
+        // do {
+        //     // call loop games and logs
+        //     // configureGame(min, max, maxTries); // no need config (i guessed)
+        //     playSingleGame();
+        //     boolean check_yn = true;
 
-            // ask after play
-            while (check_yn) {
-                System.out.print("Want to play again (y/n):");
-                String want = scan.next();
-                    // check letters
-                if (want.equalsIgnoreCase("Y")) {
-                    play = true;
-                    break;
-                } else if (want.equalsIgnoreCase("N")){
-                    play = false;
-                    break;
-                } else {
-                    System.out.println("Please type only y and n."); // ask to type again
-                }
-            }
+        //     // ask after play
+        //     while (check_yn) {
+        //         System.out.print("Want to play again (y/n):");
+        //         String want = scan.next();
+        //             // check letters
+        //         if (want.equalsIgnoreCase("Y")) {
+        //             play = true;
+        //             break;
+        //         } else if (want.equalsIgnoreCase("N")){
+        //             play = false;
+        //             break;
+        //         } else {
+        //             System.out.println("Please type only y and n."); // ask to type again
+        //         }
+        //     }
 
-        } while (play);
-        // game end
-        System.out.println("Thank you for playing the Number Guessing Game!");
+        // } while (play);
+        // // game end
+        // System.out.println("Thank you for playing the Number Guessing Game!");
     }
 
     // Getter
@@ -111,11 +112,11 @@ public class GuessGame {
     public void setMin(int min) {
         this.min = min;
     }
-    public void setMax(int min) {
-        this.max = min;
+    public void setMax(int max) {
+        this.max = max;
     }
-    public void setMaxTries(int min) {
-        this.maxTries = min;
+    public void setMaxTries(int maxTries) {
+        this.maxTries = maxTries;
     }
 
     // function for setup gameplay
@@ -139,7 +140,7 @@ public class GuessGame {
         while (maxTries <= 0) { // while loop for fix error
             System.out.println("The maximum number of tries must be greater than 0");
             System.out.print("Enter the maximum number of tries:");
-            max = scan.nextInt();
+            maxTries = scan.nextInt();
         }
         setMin(min);
         setMax(max);
