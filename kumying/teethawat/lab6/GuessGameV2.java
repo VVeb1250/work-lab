@@ -1,83 +1,70 @@
-/* Number Guessing Method Games (Class for OOP)
+/* Number Guessing Method Games V2 (Class for OOP)
  * 
- * Copy from Lab4 (Problem 1) for using in lab6
+ * inherite from GuessGame for upgrade game
  * 
  * Author : Teethawat Kumying
  * ID : 673040390-0
  * Sec : 1
  * 
- * last update 19:58 25/12/2024
+ * last update 20:32 25/12/2024
  */
 
 package kumying.teethawat.lab6;
 
-import java.util.*;
+// inherite from GuessGame
+public class GuessGameV2 extends GuessGame {
 
-public class GuessGame {
-
-    // make variable for use in class
-    private int min;
-    private int max;
-    private int maxTries;
-    private int answer;
-    private int attempts;
-
-    // create a Scanner object
-    static Scanner scan = new Scanner(System.in);
-
-    // Constructor : class main game
-    public GuessGame() {
-        // set default constructor
-        this.min = 1;
-        this.max = 100;
-        this.maxTries = 10;
-        this.answer = 0;
-        this.attempts = 0;
+    // call obj. in class
+    public GuessGameV2() {
+        super(); // call constructor from parent
+    }
+    public GuessGameV2(int min, int max, int maxTries) {
+        super(min, max, maxTries); // call constructor by setting varible
     }
 
-    // Constructor set min max and maxTries
-    public GuessGame(int min, int max, int maxTries) {
-        this.min = min;
-        this.max = max;
-        this.maxTries = maxTries;
-        this.answer = 0;
-        this.attempts = 0;
-    }
-
-    // Getter
-    public int getMin() { return min; }
-    public int getMax() { return max; }
-    public int getMaxTries() { return maxTries; }
-    public int getAnswer() { generateAnswer(); return answer; }  // adding for access answer
-
-    // Setter
-    public void setMin(int min) { this.min = min; }
-    public void setMax(int max) { this.max = max; }
-    public void setMaxTries(int maxTries) { this.maxTries = maxTries; }
-
-    // function for setup gameplay
+    // override for update more functional
+    @Override
     public void configureGame(int min, int max, int maxTries) {
-        // set varible
+        
+        // fix error min-max
+        while (min > max) {
+            System.err.println("Invalid input: Mix must be greater than or equal to min.");
+            System.out.print("Enter the min value: ");
+            min = scan.nextInt();
+            System.out.print("Enter the max value: ");
+            max = scan.nextInt();
+        }
+        // fix error maxTries
+        while (maxTries <= 0) {
+            System.err.println("Invalid input: MaxTries must be greater than 0.");
+            System.out.print("Enter a valid maximum attempts value: ");
+            maxTries = scan.nextInt();
+        }
+        
+        // update varible
         setMin(min);
         setMax(max);
         setMaxTries(maxTries);
     }
 
-    // function for random answer
-    public void generateAnswer() {
-        answer = min + (int)(Math.random() * ((max - min) + 1)); // random a number
-    }
-
-    // function call game
+    // also update game play
+    @Override 
     public boolean playSingleGame() {
+
+        // // make own variable cuz parent have private var, It's can't acceces
+        int min = getMin();
+        int max = getMax();
+        int maxTries = getMaxTries();
+        int attempts = 0;
+
         // add setup
         boolean win = false; // suppoes to lose
     
         // other setup
-        generateAnswer();
+        int answer = getAnswer();
 
         // output before game start
-        System.out.println("Welcome to a number guessing game!");
+        System.out.println("Welcome to a number Guessing Game V2!");
 
         // guessing progess
         for (attempts = 1; attempts <= maxTries; attempts++) {
@@ -87,7 +74,7 @@ public class GuessGame {
 
             // check error
             while (guess_num > max || guess_num < min) {
-                System.err.println("The number must be between " + min + " and "+ max);
+                System.out.println("The number must be between " + min + " and "+ max);
                     // ask number again
                 System.out.print("Enter an integer between " + min + " and " + max + ": ");
                 guess_num = scan.nextInt();
@@ -122,5 +109,12 @@ public class GuessGame {
         }
         // game end
         return win;
+    }
+
+    // to string method
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Game Configuration: [Min: " + getMin() + ", Max: " + getMax() + ", Max Tries: " + getMaxTries() + ", Attempts: " + "0" + "]";
     }
 }
