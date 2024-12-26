@@ -32,7 +32,7 @@ public class NumberGuessingOOPGameV2 {
         this.gameV2.configureGame(min, max, 1);
         
         // scan maximum tries
-        System.out.print("Enter the maximum number of tries:");
+        System.out.print("Enter the maximum number of tries: ");
         int maxTries = input.nextInt();
         
         this.gameV2.configureGame(min, max, maxTries);

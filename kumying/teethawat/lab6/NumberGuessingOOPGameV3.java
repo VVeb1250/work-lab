@@ -30,9 +30,9 @@ public class NumberGuessingOOPGameV3 {
 
         this.gameV3 = new GuessGameV3(min, max, 1); // make new obj.
         this.gameV3.configureGame(min, max, 1); // just config
-        
+
         // scan maximum tries
-        System.out.print("Enter the maximum number of tries:");
+        System.out.print("Enter the maximum number of tries: ");
         int maxTries = input.nextInt();
         
         this.gameV3.configureGame(min, max, maxTries); // finish config

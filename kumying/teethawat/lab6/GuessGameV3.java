@@ -6,7 +6,7 @@
  * ID : 673040390-0
  * Sec : 1
  * 
- * last update 22:19 25/12/2024
+ * last update 11:34 26/12/2024
  */
 
 package kumying.teethawat.lab6;
@@ -44,13 +44,22 @@ public class GuessGameV3 extends GuessGameV2 {
     public static int getRecordCount() { return recordindex; }
         // return game log
     public String getGameLog() {
-        int min = getMin();
-        int max = getMax();
-        int maxTries = getMaxTries();
-        int attempts = guessCount;
-        boolean res = win;
-        String guesses_list = getGuesses_list(guesses, attempts);
-        return "Range: [" + min + "-" + max +"], Max Tries: " + maxTries + ", Attempts: " + attempts + ", Result: " + (res ? "Win" : "Lose") + ", Guesses: " + guesses_list;
+
+        StringBuffer str = new StringBuffer();
+        str.append("Range: [");
+        str.append(getMin());
+        str.append("-");
+        str.append(getMax());
+        str.append("], Max Tries: ");
+        str.append(getMaxTries());
+        str.append(", Attempts: ");
+        str.append(guessCount);
+        str.append(", Result: ");
+        str.append((win ? "Win" : "Lose"));
+        str.append(", Guesses: ");
+        str.append(getGuesses_list(guesses, guessCount));
+        
+        return str.toString();
     }
 
     // override some old class
