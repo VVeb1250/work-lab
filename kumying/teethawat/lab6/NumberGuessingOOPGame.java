@@ -44,7 +44,7 @@ public class NumberGuessingOOPGame {
             // ask after play
             boolean check_yn = true;
             while (check_yn) {
-                System.out.print("Want to play again (y/n): ");
+                System.out.print("Do you want to play again (y/n): ");
                 String want = input.next();
                     // check letters
                 if (want.equalsIgnoreCase("Y")) {
@@ -55,7 +55,9 @@ public class NumberGuessingOOPGame {
                     playAgain = false;
                     break;
                 } else {
-                    System.out.println("Please type only y and n."); // ask to type again
+                    playAgain = false; // no need ask to type again
+                    break;
+                    // System.err.println("Please type only y and n."); // ask to type again
                 }
             }
         } while (playAgain);

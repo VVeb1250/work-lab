@@ -28,14 +28,14 @@ public class NumberGuessingOOPGameV2 {
         int max = input.nextInt();
 
         // make new obj.
-        this.gameV2 = new GuessGameV2(min, max, 1);
+        this.gameV2 = new GuessGameV2();
         this.gameV2.configureGame(min, max, 1);
         
         // scan maximum tries
         System.out.print("Enter the maximum number of tries: ");
         int maxTries = input.nextInt();
         
-        this.gameV2.configureGame(min, max, maxTries);
+        this.gameV2.configureGame(this.gameV2.getMin(), this.gameV2.getMax(), maxTries);
 
         System.out.println( this.gameV2.toString() );
     }

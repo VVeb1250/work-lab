@@ -28,14 +28,14 @@ public class NumberGuessingOOPGameV3 {
         System.out.print("Enter the max value: ");
         int max = input.nextInt();
 
-        this.gameV3 = new GuessGameV3(min, max, 1); // make new obj.
+        this.gameV3 = new GuessGameV3(); // make new obj.
         this.gameV3.configureGame(min, max, 1); // just config
 
         // scan maximum tries
         System.out.print("Enter the maximum number of tries: ");
         int maxTries = input.nextInt();
         
-        this.gameV3.configureGame(min, max, maxTries); // finish config
+        this.gameV3.configureGame(this.gameV3.getMin(), this.gameV3.getMax(), maxTries); // finish config
     }
 
     public void playGames() {
@@ -97,12 +97,12 @@ public class NumberGuessingOOPGameV3 {
                 break;
             case 2:
                 // select log display
-                System.out.print("Enter the Game Records: ");
+                System.out.print("Enter the game number to view: ");
                 int line = input.nextInt() - 1;
                     // check if empty
                 if (GuessGameV3.getGameRecord()[line] != null) {
                     // line output
-                    System.out.println("Game " + (line + 1) + ": " + GuessGameV3.getGameRecord()[line].getGameLog()); 
+                    System.out.println(GuessGameV3.getGameRecord()[line].getGameLog()); 
                 } else {
                     System.err.println("Error: Index not found, your order number not found in your list.");
                 }

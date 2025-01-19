@@ -49,11 +49,14 @@ public class GuessGame {
     public int getMax() { return max; }
     public int getMaxTries() { return maxTries; }
     public int getAnswer() { generateAnswer(); return answer; }  // adding for access answer
+    public int getAttempts() { return attempts; }  // adding for access answer
 
     // Setter
     public void setMin(int min) { this.min = min; }
     public void setMax(int max) { this.max = max; }
     public void setMaxTries(int maxTries) { this.maxTries = maxTries; }
+    public void setAnswer(int answer) { this.answer = answer; }
+    public void setAttempts(int attempts) { this.attempts = attempts; }
 
     // function for setup gameplay
     public void configureGame(int min, int max, int maxTries) {
@@ -77,7 +80,7 @@ public class GuessGame {
         generateAnswer();
 
         // output before game start
-        System.out.println("Welcome to a number guessing game!");
+        System.out.println("Welcome to the Number Guessing Game!");
 
         // guessing progess
         for (attempts = 1; attempts <= maxTries; attempts++) {
@@ -87,7 +90,7 @@ public class GuessGame {
 
             // check error
             while (guess_num > max || guess_num < min) {
-                System.err.println("The number must be between " + min + " and "+ max);
+                System.err.println("Invalid input: guess must be between " + min + " and "+ max);
                     // ask number again
                 System.out.print("Enter an integer between " + min + " and " + max + ": ");
                 guess_num = scan.nextInt();
@@ -98,9 +101,9 @@ public class GuessGame {
                 // win condition
                 System.out.print("Congratulations! ");
                 if (attempts == 1) { // one try
-                    System.out.println("You've guessed the number in " + attempts + " attempt");
+                    System.out.println("You've guessed the number in " + attempts + " attempt.");
                 } else { // many attempts
-                    System.out.println("You've guessed the number in " + attempts + " attempts");
+                    System.out.println("You've guessed the number in " + attempts + " attempts.");
                 }
                 win = true; // set boolean win
                 break;
@@ -117,7 +120,7 @@ public class GuessGame {
         }
         // lose condition
         if (!win) {
-            System.out.print("Sorry, you've used all your attempts.");  //+ maxTries + " times. You ran out of guesses");
+            System.out.print("Sorry, you've used all your attempts. ");  //+ maxTries + " times. You ran out of guesses");
             System.out.println("The correct answer was: " + answer);
         }
         // game end

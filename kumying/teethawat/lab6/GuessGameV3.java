@@ -81,7 +81,7 @@ public class GuessGameV3 extends GuessGameV2 {
         int min = getMin();
         int max = getMax();
         int maxTries = getMaxTries();
-        int attempts = 0;
+        int attempts = getAttempts();
 
         // add setup
         this.win = false; // suppoes to lose
@@ -100,7 +100,7 @@ public class GuessGameV3 extends GuessGameV2 {
 
             // check error
             while (guess_num > max || guess_num < min) {
-                System.out.println("The number must be between " + min + " and "+ max);
+                System.err.println("Invalid input: guess must be between " + min + " and "+ max);
                     // ask number again
                 System.out.print("Enter an integer between " + min + " and " + max + ": ");
                 guess_num = scan.nextInt();
@@ -114,9 +114,9 @@ public class GuessGameV3 extends GuessGameV2 {
                 // win condition
                 System.out.print("Congratulations! ");
                 if (attempts == 1) { // one try
-                    System.out.println("You've guessed the number in " + attempts + " attempt");
+                    System.out.println("You've guessed the number in " + attempts + " attempt.");
                 } else { // many attempts
-                    System.out.println("You've guessed the number in " + attempts + " attempts");
+                    System.out.println("You've guessed the number in " + attempts + " attempts.");
                 }
                 this.win = true; // set boolean win
                 break;
@@ -133,7 +133,7 @@ public class GuessGameV3 extends GuessGameV2 {
         }
         // lose condition
         if (!this.win) {
-            System.out.print("Sorry, you've used all your attempts.");  //+ maxTries + " times. You ran out of guesses");
+            System.out.print("Sorry, you've used all your attempts. ");  //+ maxTries + " times. You ran out of guesses");
             System.out.println("The correct answer was: " + answer);
         }
         // game end
