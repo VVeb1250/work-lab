@@ -90,7 +90,7 @@ public class GuessGameV3 extends GuessGameV2 {
         int answer = getAnswer();
 
         // output before game start
-        System.out.println("Welcome to the Record-Keeping number Guessing Game!");
+        System.out.println("Welcome to the Record-Keeping Number Guessing Game!");
 
         // guessing progess
         for (attempts = 1; attempts <= maxTries; attempts++) {
