@@ -36,25 +36,29 @@ public class SortMobileDevices implements Comparator<MobileDevice> {
         // first : compare valueof prize, if not equal return compareTo value.  
         // second : check instanceof, if not same return compare color.
         // thrid : if same do type casting. IPadAir check storage, then color. AppleWatch check color then model_name
-        if ( Double.valueOf(device1.getPrice()) == Double.valueOf(device2.getPrice()) ) {
+        int valueCompare = Double.compare(device1.getPrice(), device2.getPrice());
+        if (valueCompare == 0) {
             if (device1 instanceof IPadAir && device2 instanceof IPadAir) {
                 IPadAir ipadAir1 = (IPadAir) device1;
                 IPadAir ipadAir2 = (IPadAir) device2;
-                if ( Double.valueOf(ipadAir1.getStorage()) == Double.valueOf(ipadAir2.getStorage()) ) {
-                    return ipadAir1.getColor().compareTo(ipadAir2.getColor());
+                int storageCompare = Double.compare(ipadAir1.getStorage(), ipadAir2.getStorage());
+                if ( storageCompare == 0 ) {
+                    int colorCompare = ipadAir1.getColor().compareTo(ipadAir2.getColor());
+                    return colorCompare;
                 }
-                return Double.valueOf(ipadAir1.getStorage()).compareTo(Double.valueOf(ipadAir2.getStorage()));
-            } else if (device1 instanceof AppleWatch && device2 instanceof AppleWatch) {
+                return storageCompare;
+            } if (device1 instanceof AppleWatch && device2 instanceof AppleWatch) {
                 AppleWatch appleWatch1 = (AppleWatch) device1;
                 AppleWatch appleWatch2 = (AppleWatch) device2;
+                int modelNameCompare = appleWatch1.getModelName().compareTo(appleWatch2.getModelName());
                 if ( appleWatch1.getModelName() == appleWatch2.getModelName() ) {
-                    return appleWatch1.getColor().compareTo(appleWatch2.getColor());
+                    int colorCompare = appleWatch1.getColor().compareTo(appleWatch2.getColor());
+                    return colorCompare;
                 }
-                return appleWatch1.getModelName().compareTo(appleWatch2.getModelName());
-            } else {
-                return device1.getColor().compareTo(device2.getColor());
+                return modelNameCompare;
             }
+            return device1.getColor().compareTo(device2.getColor());
         }
-        return Double.valueOf(device1.getPrice()).compareTo(Double.valueOf(device2.getPrice()));
+        return valueCompare;
     }
 }
