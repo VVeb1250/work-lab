@@ -17,20 +17,12 @@ public class MobileDeviceV2 extends MobileDeviceV1{
     protected JLabel operatingSystemLabel, featuresLabel;
     protected JTextArea featuresTextArea;
     protected String[] options = {"Android", "iOS", "Windows", "Others"};
-    @SuppressWarnings("rawtypes")
-    protected JComboBox operatingSystemComboBox = new JComboBox<>(options);
+    protected JComboBox<String> operatingSystemComboBox = new JComboBox<>(options);
 
     @Override
     protected void addComponents() {
-        // intizise mainPanel
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-
-        MakeFromPanel();
+        super.addComponents(); // call old medhod
         MakeExtraPanel();
-        MakeButtonPanel();
-
-        add(mainPanel);
     }
     protected void MakeExtraPanel() {
         // intizise formPanel
@@ -44,6 +36,8 @@ public class MobileDeviceV2 extends MobileDeviceV1{
             // features
         featuresLabel = new JLabel("Features:");
         featuresTextArea = new JTextArea(3, 25);
+        featuresTextArea.setLineWrap(true);
+        featuresTextArea.setWrapStyleWord(true);
         JScrollPane featuresScrollPane = new JScrollPane(featuresTextArea); // warp by JScrollPane
         // add to frompanel
         formPanel.add(operatingSystemLabel);

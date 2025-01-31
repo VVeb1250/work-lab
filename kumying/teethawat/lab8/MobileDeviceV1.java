@@ -14,12 +14,13 @@ public class MobileDeviceV1 extends MySimpleWindow {
 
     @Override
     protected void addComponents() {
+        super.addComponents();
         // intizise mainPanel
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
         MakeFromPanel();
-        MakeButtonPanel();
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         add(mainPanel);
     }
@@ -58,17 +59,6 @@ public class MobileDeviceV1 extends MySimpleWindow {
         formPanel.add(typePanel);
         // add to main
         mainPanel.add(formPanel, BorderLayout.NORTH);
-    }
-    protected void MakeButtonPanel() {
-        // make obj.
-        buttonPanel = new JPanel();
-        resetButton = new JButton("Cancel");
-        submitButton = new JButton("OK");
-        // add to panel
-        buttonPanel.add(resetButton);
-        buttonPanel.add(submitButton);
-        // add to main
-        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

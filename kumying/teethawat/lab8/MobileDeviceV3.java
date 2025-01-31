@@ -1,11 +1,8 @@
 package kumying.teethawat.lab8;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class MobileDeviceV3 extends MobileDeviceV2 {
@@ -25,16 +22,8 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
 
     @Override
     protected void addComponents() {
-        // intizise mainPanel
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-
+        super.addComponents(); // call old method
         MakeMenuBar();
-        MakeFromPanel();
-        MakeExtraPanel();
-        MakeButtonPanel();
-
-        add(mainPanel);
     }
     protected void MakeMenuBar() {
         menuBar = new JMenuBar();
