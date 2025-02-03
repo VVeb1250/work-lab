@@ -8,6 +8,7 @@ public class MobileDeviceV1 extends MySimpleWindow {
         super(title);
     }
 
+    protected JPanel formPanel, typePanel;
     protected JLabel deviceNameLabel, brandDeviceNameLabel, priceDeviceNameLabel, typeDeviceNameLabel;
     protected JTextField deviceNameTextField, brandTedeviceNameTextField, priceTedeviceNameTextField;
     protected JRadioButton smartphoneRadioButton, ipadRadioButton;
@@ -26,7 +27,7 @@ public class MobileDeviceV1 extends MySimpleWindow {
     }
     protected void MakeFromPanel() {
         // intizise formPanel
-        JPanel formPanel = new JPanel();
+        formPanel = new JPanel();
         formPanel.setLayout(new GridLayout(4, 2));
         // making obj.
             // lebel
@@ -39,7 +40,7 @@ public class MobileDeviceV1 extends MySimpleWindow {
         brandTedeviceNameTextField = new JTextField(15);
         priceTedeviceNameTextField = new JTextField(15);
             // type button
-        JPanel typePanel = new JPanel();
+        typePanel = new JPanel();
         ButtonGroup ButtonGroup = new ButtonGroup();
         smartphoneRadioButton = new JRadioButton("Smartphone");
         ipadRadioButton = new JRadioButton("Tablet");

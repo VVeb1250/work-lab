@@ -14,23 +14,25 @@ public class MySimpleWindow extends JFrame {
     }
 
     protected void addComponents() {
-        resetButton = new JButton("Cancel");
-        submitButton = new JButton("OK");
-        mainPanel = new JPanel();
-        buttonPanel = new JPanel();
+        resetButton = new JButton("Cancel"); // Cancel bt
+        submitButton = new JButton("OK"); // OK bt
+        mainPanel = new JPanel(); // make main panel
+        buttonPanel = new JPanel(); // make bt p
 
         buttonPanel.add(resetButton);
         buttonPanel.add(submitButton);
-        mainPanel.add(buttonPanel);
+        mainPanel.add(buttonPanel); // set mainpanel to buttonPanel
 
         add(mainPanel);
     }
     protected void setFrameFeatures() {
+        // set setFrameFeature option
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         pack();
         setLocationRelativeTo(null);
     }
+    // main running
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

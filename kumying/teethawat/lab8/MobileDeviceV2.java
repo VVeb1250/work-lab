@@ -7,13 +7,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 public class MobileDeviceV2 extends MobileDeviceV1{
     public MobileDeviceV2(String title) {
         super(title);
     }
 
+    protected JPanel extraPanel;
     protected JLabel operatingSystemLabel, featuresLabel;
     protected JTextArea featuresTextArea;
     protected String[] options = {"Android", "iOS", "Windows", "Others"};
@@ -26,8 +28,8 @@ public class MobileDeviceV2 extends MobileDeviceV1{
     }
     protected void MakeExtraPanel() {
         // intizise formPanel
-        JPanel formPanel = new JPanel();
-        formPanel.setLayout(new GridLayout(2, 2));
+        extraPanel = new JPanel();
+        extraPanel.setLayout(new GridLayout(2, 2));
         // make obj.
             // operatingSystem
         operatingSystemLabel = new JLabel("Operating System:");
@@ -40,12 +42,12 @@ public class MobileDeviceV2 extends MobileDeviceV1{
         featuresTextArea.setWrapStyleWord(true);
         JScrollPane featuresScrollPane = new JScrollPane(featuresTextArea); // warp by JScrollPane
         // add to frompanel
-        formPanel.add(operatingSystemLabel);
-        formPanel.add(operatingSystemComboBox);
-        formPanel.add(featuresLabel);
-        formPanel.add(featuresScrollPane);
+        extraPanel.add(operatingSystemLabel);
+        extraPanel.add(operatingSystemComboBox);
+        extraPanel.add(featuresLabel);
+        extraPanel.add(featuresScrollPane);
         // add to main
-        mainPanel.add(formPanel, BorderLayout.CENTER);
+        mainPanel.add(extraPanel, BorderLayout.CENTER);
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
