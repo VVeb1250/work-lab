@@ -32,38 +32,34 @@ public class MobileDeviceV4 extends MobileDeviceV3 {
 
     @Override
     protected void addMenus() {
-        super.addMenus();
+        super.addMenus(); // call old medhod
         ChangeFileImage(fileImageList);
         ChangeSizeMenu(sizeList);
         ChangeColorMenu(colorList);
         ChangeFontMenu(fontList);
     }
     protected void ChangeFileImage(String[] fileImageList) {
-        // newMI.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/new_icon.png")));
         for (int i = 0; i < 4; i++) {
-            JMenuItem item = menuitems.get(i);
-            item.setIcon(new ImageIcon(getClass().getClassLoader().getResource(fileImageList[i])));
+            JMenuItem item = menuitems.get(i); // call item from menuitems 
+            item.setIcon(new ImageIcon(getClass().getClassLoader().getResource(fileImageList[i]))); // set image by image list
         }
     }
     protected void ChangeSizeMenu(int[] sizeList) {
-        // smallMI.setFont(new Font("Arial", Font.PLAIN, 10));
         for (int i = 4; i < 8; i++) {
-            JMenuItem item = menuitems.get(i);
-            item.setFont(new Font("Arial", Font.PLAIN, sizeList[i-4]));
+            JMenuItem item = menuitems.get(i); // call item from menuitems 
+            item.setFont(new Font("Arial", Font.PLAIN, sizeList[i-4])); // set size by sizeList
         }
     }
     protected void ChangeColorMenu(Color[] colorList) {
-        // blackMI.setForeground(Color.BLACK);
         for (int i = 8; i < 12; i++) {
-            JMenuItem item = menuitems.get(i);
-            item.setForeground(colorList[i-8]);
+            JMenuItem item = menuitems.get(i); // call item from menuitems 
+            item.setForeground(colorList[i-8]); // set color by colorList
         }
     }
     protected void ChangeFontMenu(String[] fontList) {
-        // font1MI.setFont(new Font("Serif", Font.PLAIN, 14));
         for (int i = 12; i < 15; i++) {
-            JMenuItem item = menuitems.get(i);
-            item.setFont(new Font(fontList[i-12], Font.PLAIN, 14));
+            JMenuItem item = menuitems.get(i); // call item from menuitems 
+            item.setFont(new Font(fontList[i-12], Font.PLAIN, 14)); // set font by fontlist
         }
     }
     

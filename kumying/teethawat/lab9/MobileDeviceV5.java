@@ -1,7 +1,5 @@
 package kumying.teethawat.lab9;
 
-import java.awt.BorderLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -11,6 +9,7 @@ import javax.swing.JSlider;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 public class MobileDeviceV5 extends MobileDeviceV4 {
@@ -21,15 +20,17 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
     protected JPanel ultraExtraPanel, deviceAvalablelPanel, deviceRatingPanel;
     protected JLabel deviceAvalableLabel, deviceRatingLabel;
     protected String[] vendors = {"AIS", "True", "DTAC", "Shopee"};
-    protected JList<String> deviceAvalable = new JList<String>(vendors);
+    protected JList<String> deviceAvalable = new JList<String>(vendors); // set deviceAvalable by vendors
     protected JSlider deviceRatingSlider;
 
     @Override
     protected void addComponents() {
         super.addComponents(); // call old method
+        // make new layout
         ultraExtraPanel = new JPanel();
         ultraExtraPanel.setLayout(new BoxLayout(ultraExtraPanel, BoxLayout.Y_AXIS));
-        ultraExtraPanel.add(extraPanel, BorderLayout.NORTH);
+        // adding new component
+        ultraExtraPanel.add(extraPanel);
         makeDeviceAvalable();
         makeDeviceRating();
         mainPanel.add(ultraExtraPanel, BorderLayout.CENTER);
@@ -44,7 +45,7 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
         JScrollPane deviceAvalableScrollPane = new JScrollPane(deviceAvalable);
         deviceAvalablelPanel.add(deviceAvalableLabel);
         deviceAvalablelPanel.add(deviceAvalableScrollPane);
-        ultraExtraPanel.add(deviceAvalablelPanel, BorderLayout.CENTER);
+        ultraExtraPanel.add(deviceAvalablelPanel);
     }
     public void makeDeviceRating() {
         deviceRatingPanel = new JPanel();
@@ -56,7 +57,7 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
         deviceRatingSlider.setPaintLabels(true);
         deviceRatingPanel.add(deviceRatingLabel);
         deviceRatingPanel.add(deviceRatingSlider);
-        ultraExtraPanel.add(deviceRatingPanel, BorderLayout.SOUTH);
+        ultraExtraPanel.add(deviceRatingPanel);
     }
 
     public static void main(String[] args) {
