@@ -1,6 +1,7 @@
 package kumying.teethawat.lab9;
 
-import javax.swing.JPanel;
+import java.awt.Dimension;
+
 import javax.swing.SwingUtilities;
 
 public class MobileDeviceV7 extends MobileDeviceV6 {
@@ -8,11 +9,12 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
         super(title);
     }
 
-    JPanel imagePanel;
+    protected ReadImage imageSamsungGalaxyS25Ultra;
 
     @Override
     protected void addComponents() {
         super.addComponents(); // call old medhod
+        // just set text
         deviceNameTextField.setText("Samsung Galaxy S25 Ultra");
         brandDeviceNameTextField.setText("Samsung");
         priceDeviceNameTextField.setText("46,900");
@@ -24,9 +26,12 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
                         "- 6.8-inch AMOLED Display\r\n" + //
                         "- 120Hz Refresh Rate\r\n" + //
                         "- Fast Charging\r\n");
-        imagePanel = new ReadImage("kumying/teethawat/lab9/image/S25-ultra.jpg");
-        ultraExtraPanel.add(imagePanel);
+        // just set slider
         deviceRatingSlider.setValue(9);
+        // image progess (explain in own class)
+        imageSamsungGalaxyS25Ultra = new ReadImage("kumying/teethawat/lab9/image/S25-ultra.jpg", 0.45f); // take to my class
+        imageSamsungGalaxyS25Ultra.setPreferredSize(new Dimension(imageSamsungGalaxyS25Ultra.getWidth(), imageSamsungGalaxyS25Ultra.getHeight())); // setsize (Width by picture, Height by own picture)
+        ultraExtraPanel.add(imageSamsungGalaxyS25Ultra); // add to ultraextrapanel
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
