@@ -1,7 +1,6 @@
 package kumying.teethawat.lab10;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -10,6 +9,7 @@ import javax.swing.SwingUtilities;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.*;
+import java.util.List;
 
 import kumying.teethawat.lab9.MobileDeviceV7;
 
@@ -40,8 +40,18 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
                "Type: " + (smartphoneRadioButton.isSelected() ? smartphoneRadioButton.getText() : ipadRadioButton.getText()) + "\r\n" + //
                "Operating System: " + vendors[operatingSystemComboBox.getSelectedIndex()] + "\r\n" + //
                "Features: " + featuresTextArea.getText() + "\r\n" + //
-               "Available at: " + deviceAvalable.getSelectedValue() + "\r\n" + //
+               "Available at: " + getselectedVendors() + "\r\n" + //
                "Rating: " + deviceRatingSlider.getValue();
+    }
+    public String getselectedVendors() {
+        List<String> selectedVendors = deviceAvalable.getSelectedValuesList();
+        // Create a message showing the selected vendors
+        if (selectedVendors.size() == 1) { return selectedVendors.get(0); }
+        if (selectedVendors.size() == 0) { return null; }
+        StringBuilder message = new StringBuilder();
+        for (String vendor : selectedVendors) {
+            message.append(vendor).append(", ");
+        } return message.substring(0, message.length()-2).toString();
     }
     public void resetAction() {
         resetTextFieldAction(mainPanel);

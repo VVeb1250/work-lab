@@ -25,7 +25,7 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
                         "- 5000mAh Battery\r\n" + //
                         "- 6.8-inch AMOLED Display\r\n" + //
                         "- 120Hz Refresh Rate\r\n" + //
-                        "- Fast Charging\r\n");
+                        "- Fast Charging");
         // just set slider
         deviceRatingSlider.setValue(9);
         // image progess (explain in own class)
