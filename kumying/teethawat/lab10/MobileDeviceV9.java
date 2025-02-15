@@ -92,7 +92,7 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
         } else { return; }
     }
     public String getFilePath() {
-        return (FileChooser.getSelectedFile().getAbsolutePath());
+        return (FileChooser.getSelectedFile().getName()); // (FileChooser.getSelectedFile().getAbsolutePath());
     }
     public void exitAction() {
         System.exit(0);
