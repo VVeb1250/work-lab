@@ -22,10 +22,12 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
 
     public void addListeners() {
         super.addListeners();
+        // add every listner ti menuitems
         for (JMenuItem menuitem : menuitems) {
             menuitem.addActionListener(this);
         }
     }
+    // menuitems is list of these :
     // {"New", "Open", "Save", "Exit"};  // menuitems {0-3}
     // {"Size", "Color", "Font"};
     // {"Small", "Medium", "Large", "Extra Large"};  // menuitems {4-7}

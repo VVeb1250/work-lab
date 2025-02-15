@@ -24,10 +24,11 @@ public class MobileDeviceV10 extends MobileDeviceV9 implements ListSelectionList
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
-        selectedOSAction();
+        Object src = e.getSource();
+        if (src == operatingSystemComboBox) { selectedOSAction(); }
     }
     public void selectedOSAction() {
-        String selectedOS = (String) operatingSystemComboBox.getSelectedItem();
+        String selectedOS = (String) operatingSystemComboBox.getSelectedItem(); // getSelectedItem follow assingment suggestion
         String msg = "You selected Operating System: " + selectedOS;
         JOptionPane.showMessageDialog(this, msg, "OS Selection" ,JOptionPane.INFORMATION_MESSAGE);
     }

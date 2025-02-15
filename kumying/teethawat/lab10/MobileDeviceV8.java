@@ -14,26 +14,30 @@ import java.util.List;
 import kumying.teethawat.lab9.MobileDeviceV7;
 
 public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
-    ButtonGroup typeButtonGroup;
+    ButtonGroup typeButtonGroup; // I forgor to make ButtonGroup for listener other (coming soon...)
 
     public MobileDeviceV8(String title) {
         super(title);
     }
     public void addListeners() {
+        // just add listener reset and submit button
         resetButton.addActionListener(this);
         submitButton.addActionListener(this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object src = e.getSource();
+        Object src = e.getSource(); // get sorce action
+        // check each action
         if (src == submitButton) {
-            JOptionPane.showMessageDialog(this, getMessage(), "Device Information", JOptionPane.INFORMATION_MESSAGE);
+            // getMessage() and show popup
+            JOptionPane.showMessageDialog(this, getMessage(), "Device Information", JOptionPane.INFORMATION_MESSAGE); // show popup
         }
         if (src == resetButton) {
-            resetAction();
+            resetAction(); // reset action just scroll down to find it
         }
     }
     public String getMessage() {
+        // return String by call each Obj. var.
         return "Device Name: " + deviceNameTextField.getText() + "\r\n" + //
                "Brand: " + brandDeviceNameTextField.getText() + "\r\n" + //
                "Price: " + priceDeviceNameTextField.getText() + "\r\n" + //
@@ -44,24 +48,27 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
                "Rating: " + deviceRatingSlider.getValue();
     }
     public String getselectedVendors() {
-        List<String> selectedVendors = deviceAvalable.getSelectedValuesList();
+        List<String> selectedVendors = deviceAvalable.getSelectedValuesList(); // make new verdor list from selected
         // Create a message showing the selected vendors
         if (selectedVendors.size() == 1) { return selectedVendors.get(0); }
         if (selectedVendors.size() == 0) { return null; }
+            // if have many selected vendors
         StringBuilder message = new StringBuilder();
         for (String vendor : selectedVendors) {
             message.append(vendor).append(", ");
-        } return message.substring(0, message.length()-2).toString();
+        } return message.substring(0, message.length()-2).toString(); // del ", " before return
     }
     public void resetAction() {
+        // reset progess
         resetTextFieldAction(mainPanel);
         resetTextAreaAction(mainPanel);
-        resetTypeAction();
-        resetOperatingSystemAction();
-        resetDeviceAvalableAction();
-        resetSliderAction();
+        resetTypeAction(); // smartphoneRadioButton.setSelected(true);
+        resetOperatingSystemAction(); // operatingSystemComboBox.setSelectedIndex(0);
+        resetDeviceAvalableAction(); // deviceAvalable.clearSelection();
+        resetSliderAction(); // deviceRatingSlider.setValue(5);
     }
     public void resetTextFieldAction(Container container) {
+        // reset every textfield
         for (Component child : container.getComponents()) {
             if (child instanceof Container) {
                 resetTextFieldAction((Container)child);
@@ -72,6 +79,7 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
         }
     }
     public void resetTextAreaAction(Container container) {
+        // reset every textarea
         for (Component child : container.getComponents()) {
             if (child instanceof Container) {
                 resetTextAreaAction((Container)child);
@@ -81,6 +89,7 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
             }
         }
     }
+    // idk why i do like this lol
     public void resetTypeAction() {
         smartphoneRadioButton.setSelected(true);
     }
