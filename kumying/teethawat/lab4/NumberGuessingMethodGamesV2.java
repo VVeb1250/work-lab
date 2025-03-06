@@ -1,3 +1,27 @@
+/* Number Guessing Method Games V2
+ * Develop a Java program named NumberGuessingMethodGamesV2. This program is an advanced iteration of NumberGuessingMethodGames, 
+ * designed with enhanced features to elevate player engagement and interaction.
+ * 
+ * Features of GuessNumberGamesV2:
+ *  Inheritance of Core Gameplay: NumberGuessingMethodGamesV2 integrates all the features of the original NumberGuessingMethoGames
+ *  Post-Game Guess Review: Upon the game's conclusion (regardless of whether the player guesses correctly or depletes all attempts), the player is provided with various options to review their guesses.
+ *      'a' Option: Selecting this option displays a comprehensive list of all guesses made by the player throughout the game in the format 
+ *          Guess 1: the guess number at the 1st time 
+ *          Guess 2: …
+ *          Guess <numTries>: the guess number at the  <numTries> time
+ *      'g' Option: This option allows the player to choose and view a specific guess <n>.  The output is shown in this format
+ *          Guess <n>: the guess number at the <n> time
+ *      Exit Feature: Any other keypress will exit the program.
+ * 
+ * Point for understand function call and do while and class varible
+ * 
+ * Author : Teethawat Kumying
+ * ID : 673040390-0
+ * Sec : 1
+ * 
+ * last update 04:05 09/12/2024
+ */
+
 package kumying.teethawat.lab4;
 
 import java.util.Scanner;
