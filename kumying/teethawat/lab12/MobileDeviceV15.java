@@ -57,7 +57,7 @@ public class MobileDeviceV15 extends MobileDeviceV14 {
         if (Check == JFileChooser.APPROVE_OPTION) { // if the user selects a file
             File fileSelected = fileChooser.getSelectedFile();
             // don't stun, Just check condition if textFormat.isSelected() do ReadFile(fileSelected) and return boolean for check condition
-            // but is not textFormat.isSelected() do ReadFile(fileSelected) and also return boolean for check condition
+            // but is not textFormat.isSelected() do ReadFileBinary(fileSelected) and also return boolean for check condition
             if (textFormat.isSelected() ? ReadFile(fileSelected) : ReadFileBinary(fileSelected)) {
                 // pass with my own function
                 String msg = "Opening: " + getFilePath();
