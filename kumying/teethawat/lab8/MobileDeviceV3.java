@@ -34,13 +34,13 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
         menuBar = new JMenuBar();
         fileMenu = new JMenu("File");
         configMenu = new JMenu("Config");
-
+        // add menuitem
         AddItemToMenu(fileMenu, fileMenuList);
         AddSubmenuToMenu(configMenu, configMenuList, configSubmenuList);
-
+        // add menu to menubar
         menuBar.add(fileMenu);
         menuBar.add(configMenu);
-
+        // set menu
         setJMenuBar(menuBar);
     }
     protected void AddItemToMenu(JMenu menu, String[] list) {

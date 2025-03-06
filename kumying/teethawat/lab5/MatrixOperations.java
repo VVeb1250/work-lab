@@ -212,6 +212,7 @@ public class MatrixOperations {
         }
         rows = col_temp;
         columns = row_temp;
+        System.out.println("Transposed Matrix:");
         displayMatrix(matrix);
     }
 
@@ -309,6 +310,7 @@ public class MatrixOperations {
             while (continueOperations) {
                 displayOperationsMenu();
                 int operation = scanner.nextInt();
+                System.out.println();
  
                 switch (operation) {
                     case 1:

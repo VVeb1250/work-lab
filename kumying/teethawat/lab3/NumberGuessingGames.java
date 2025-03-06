@@ -105,7 +105,7 @@ public class NumberGuessingGames {
                     System.err.println("Error : you should enter Integer");
                 }
             }
-            // end loop game ended
+            // game ended
             if (lose) {
                 System.out.println("You have tried " + max_tries + " times. You ran out of guesses");
                 System.out.println("The answer is " + random);
@@ -124,6 +124,6 @@ public class NumberGuessingGames {
 
         // game end
         System.out.println("Thank you for playing our games. Bye!");
-        scan.close();
+        scan.close(); // close scan
     }
 }

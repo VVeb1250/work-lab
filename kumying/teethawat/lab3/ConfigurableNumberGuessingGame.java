@@ -100,6 +100,7 @@ public class ConfigurableNumberGuessingGame {
             System.out.println("You have tried " + max_tries + " times. You ran out of guesses");
             System.out.println("The answer is " + random);
         }
+        // close scan
         scan.close();
     }
 }

@@ -10,7 +10,7 @@ public class MobileDeviceV1 extends MySimpleWindow {
 
     protected JPanel formPanel, typePanel;
     protected JLabel deviceNameLabel, brandDeviceNameLabel, priceDeviceNameLabel, typeDeviceNameLabel;
-    protected JTextField deviceNameTextField, brandTedeviceNameTextField, priceTedeviceNameTextField;
+    protected JTextField deviceNameTextField, brandDeviceNameTextField, priceDeviceNameTextField;
     protected JRadioButton smartphoneRadioButton, ipadRadioButton;
 
     @Override
@@ -37,8 +37,8 @@ public class MobileDeviceV1 extends MySimpleWindow {
         typeDeviceNameLabel = new JLabel("Type:");
             // textfield
         deviceNameTextField = new JTextField(15);
-        brandTedeviceNameTextField = new JTextField(15);
-        priceTedeviceNameTextField = new JTextField(15);
+        brandDeviceNameTextField = new JTextField(15);
+        priceDeviceNameTextField = new JTextField(15);
             // type button
         typePanel = new JPanel();
         ButtonGroup ButtonGroup = new ButtonGroup();
@@ -53,9 +53,9 @@ public class MobileDeviceV1 extends MySimpleWindow {
         formPanel.add(deviceNameLabel);
         formPanel.add(deviceNameTextField);
         formPanel.add(brandDeviceNameLabel);
-        formPanel.add(brandTedeviceNameTextField);
+        formPanel.add(brandDeviceNameTextField);
         formPanel.add(priceDeviceNameLabel);
-        formPanel.add(priceTedeviceNameTextField);
+        formPanel.add(priceDeviceNameTextField);
         formPanel.add(typeDeviceNameLabel);
         formPanel.add(typePanel);
         // add to main

@@ -90,7 +90,7 @@ public class RecursiveMethods {
 
 		public static void print_sumOfDigits(int num) {
 			System.out.print("Sum of digit in ");
-			System.out.print(num + ":");
+			System.out.print(num + ": ");
 			System.out.println(sumOfDigits(num));
 		}
 
