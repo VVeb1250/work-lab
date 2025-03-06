@@ -1,7 +1,6 @@
 package kumying.teethawat.lab11;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import java.awt.*;
 

@@ -14,7 +14,7 @@ import java.util.List;
 import kumying.teethawat.lab9.MobileDeviceV7;
 
 public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener{
-    ButtonGroup typeButtonGroup; // I forgor to make ButtonGroup for listener other (coming soon...)
+    protected ButtonGroup typeButtonGroup; // I forgor to make ButtonGroup for listener other (coming soon...)
 
     public MobileDeviceV8(String title) {
         super(title);
