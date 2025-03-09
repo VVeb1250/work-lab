@@ -100,8 +100,10 @@ public class MobileDeviceV15 extends MobileDeviceV14 {
             ArrayList<MobileDevice> newMobileDevices = (ArrayList<MobileDevice>) reader.readObject();
             // loop add new data display
             for (MobileDevice newMobileDevice : newMobileDevices) {
+                // i forgor to add data into MobileDevices (My bruh lol)
+                mobileDevices.add(newMobileDevice);
                 // add new data
-                newData.append(newMobileDevice.toString());
+                newData.append(newMobileDevice.toString() + "/n"); // i forgor to add line after get toString()
             }
             reader.close();
             return true;
